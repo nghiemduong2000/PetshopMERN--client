@@ -1,0 +1,96 @@
+@import "style/_variables.scss";
+@import "style/_mixin.scss";
+
+.footer {
+  background-color: $cl-primary;
+  padding: 5rem 0;
+  &__title {
+    &:hover {
+      text-decoration: none;
+    }
+    & > h3 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: $cl-w;
+      margin: 1rem 0;
+      font-weight: bold;
+    }
+  }
+  &__items {
+    &-list {
+      padding: 0;
+      margin: 0;
+    }
+    &-item {
+      list-style: none;
+      text-align: center;
+      a {
+        text-decoration: none;
+        font-size: 1.8rem;
+        color: $cl-w;
+        padding: 0.5rem 0;
+        display: block;
+      }
+    }
+    &-social {
+      display: flex;
+      width: 100%;
+      margin-top: 1rem;
+      justify-content: center;
+    }
+    &-icon {
+      color: $cl-w;
+      width: 4rem;
+      height: 4rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.8rem;
+      margin: 0 1rem;
+      &:hover {
+        text-decoration: none;
+        color: $cl-w;
+      }
+      @include respond(md-desktop) {
+        margin: 0 0.5rem;
+      }
+      @include respond(tablet) {
+        width: 3rem;
+        height: 3rem;
+      }
+      svg {
+        width: 2rem !important;
+        height: 2rem;
+        @include respond(tablet) {
+          width: 1.4rem !important;
+          height: 1.4rem;
+        }
+      }
+      &:nth-child(1) {
+        background-color: $cl-red;
+      }
+      &:nth-child(2) {
+        background-color: #3a5998;
+      }
+      &:nth-child(3) {
+        background-color: $cl-red;
+      }
+      &:nth-child(4) {
+        background: linear-gradient(
+          to bottom,
+          #8457cd,
+          #d32e96,
+          #e46258,
+          #ffd879
+        );
+      }
+    }
+  }
+  &__copyright {
+    font-size: 1.8rem;
+    text-align: center;
+    color: $cl-w;
+    margin: 8rem auto 0;
+  }
+}

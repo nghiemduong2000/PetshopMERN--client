@@ -1,0 +1,79 @@
+@import 'style/_variables.scss';
+@import 'style/_animations.scss';
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  border: 1px solid $cl-gray--l;
+  border-radius: 0.8rem;
+  position: relative;
+  &-like {
+    background-color: $cl-gray;
+    opacity: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    border-radius: 0.8rem;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    cursor: pointer;
+    svg {
+      pointer-events: none;
+      color: $cl-w;
+      width: 2rem !important;
+      height: 2rem;
+    }
+    &.active {
+      background-color: $cl-red;
+      animation: upScale 0.3s ease-in forwards;
+    }
+  }
+  &:hover .product-like {
+    opacity: 1;
+  }
+  &-img {
+    img {
+      height: 18rem;
+    }
+  }
+  &-rating {
+    margin-top: 2rem;
+    color: $cl-orange;
+    width: 1.4rem !important;
+    height: 1.4rem;
+    object-fit: cover;
+    &:not(:last-child) {
+      margin-right: 0.4rem;
+    }
+  }
+  &-name {
+    margin: 1rem 0 0.5rem 0;
+    width: 100%;
+    color: $cl-gray;
+    font-weight: bold;
+    font-size: 1.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    &:hover {
+      text-decoration: none;
+      color: $cl-gray;
+    }
+  }
+  &-price {
+    margin-bottom: 0.8rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: $cl-primary;
+  }
+  &-btn {
+    width: 100%;
+    padding: 0.5rem 4rem;
+  }
+}

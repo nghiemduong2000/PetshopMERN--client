@@ -1,0 +1,40 @@
+@import "style/_variables.scss";
+
+.home__handbook {
+  margin-bottom: 5rem;
+  &-content {
+    padding: 0 1.5rem;
+    &-item {
+      &-inner {
+        border: 1px solid $cl-gray--l;
+        border-radius: 0.8rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        svg {
+          width: 12.5rem !important;
+          height: 12.5rem;
+          color: $cl-primary;
+        }
+        h3 {
+          font-size: 2.2rem;
+          font-weight: bold;
+          color: $cl-gray;
+          margin: 1.8rem 0;
+        }
+        p {
+          text-align: center;
+          font-size: 1.4rem;
+          margin-bottom: 1.2rem;
+        }
+        a {
+          width: 100%;
+          display: inline-block;
+          font-weight: bold;
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}

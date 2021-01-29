@@ -1,0 +1,60 @@
+@import 'style/_variables.scss';
+
+.register {
+  &__header {
+    border-bottom: 1px solid #bbb;
+    &-wrap {
+      display: flex;
+      padding: 2.5rem 3rem;
+      align-items: center;
+      justify-content: center;
+      .register__header-link {
+        margin-right: 2rem;
+        img {
+          height: 3.6rem;
+        }
+      }
+      h1 {
+        font-weight: 500;
+      }
+    }
+  }
+  &__main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem 0;
+    .register__form {
+      width: 60rem;
+      &-title {
+        font-size: 2.8rem;
+        font-weight: bold;
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        border-bottom: 4px solid $cl-primary;
+        color: $cl-primary;
+        margin-bottom: 2rem;
+      }
+      &-main {
+        font-size: 1.8rem;
+        color: $cl-primary;
+        .form-group {
+          margin-bottom: 2rem;
+        }
+        label {
+          font-weight: bold;
+        }
+        input {
+          font-size: 1.6rem;
+          padding: 2rem;
+          border-radius: 0.8rem;
+        }
+        .register__form-btn {
+          width: 100%;
+          font-size: 2rem;
+          padding: 0.6rem;
+        }
+      }
+    }
+  }
+}

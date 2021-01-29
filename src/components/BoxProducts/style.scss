@@ -1,0 +1,60 @@
+@import "style/_variables.scss";
+@import "style/_animations.scss";
+
+.boxProducts__slider {
+  padding: 0 1.5rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  position: relative;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &-content {
+    flex-wrap: nowrap;
+    transition: all 0.2s ease-in-out;
+    align-items: center;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 105%;
+    width: 4rem;
+    right: 0;
+    top: -1rem;
+    background-image: linear-gradient(
+      to right,
+      rgba(102, 40, 40, 0),
+      rgb(255, 255, 255)
+    );
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 105%;
+    width: 4rem;
+    left: 0;
+    top: -1rem;
+    z-index: 1;
+    background-image: linear-gradient(
+      to left,
+      rgba(102, 40, 40, 0),
+      rgb(255, 255, 255)
+    );
+  }
+}
+
+.column-5 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+  .column-5 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}

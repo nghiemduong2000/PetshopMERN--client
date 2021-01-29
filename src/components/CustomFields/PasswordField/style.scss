@@ -1,0 +1,17 @@
+@import 'style/_variables.scss';
+
+.passwordField-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  svg {
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+}
+.profile__form {
+  font-size: 1.8rem;
+  color: $cl-primary;
+  display: flex;
+  width: 100%;
+}

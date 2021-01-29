@@ -1,0 +1,25 @@
+@import 'style/_variables.scss';
+
+.productReview {
+  display: flex;
+  border-bottom: 1px solid $cl-gray--l;
+  padding: 1.5rem 1rem;
+  width: 100%;
+  img {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-right: 1.5rem;
+    border-radius: 50%;
+  }
+  &__info {
+    span {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: $cl-primary;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      margin: 1rem 0 0 0;
+    }
+  }
+}

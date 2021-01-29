@@ -1,0 +1,89 @@
+@import "style/_variables.scss";
+
+.banner {
+  overflow: hidden;
+  position: relative;
+  &__slider {
+    display: flex;
+    transition: all 0.6s ease-in-out;
+    &-item {
+      position: relative;
+      .banner__slider-btn {
+        position: absolute;
+        top: 30rem;
+        left: 9rem;
+        font-size: 2.2rem;
+        font-weight: bold;
+        padding: 0.6rem 4.2rem;
+        border-radius: 0.8rem;
+        text-decoration: none;
+        background-color: $cl-primary;
+        color: $cl-w;
+        display: flex;
+        align-items: center;
+        transition: all 0.2s ease-in-out;
+        &:hover svg {
+          transform: translateX(0.6rem);
+        }
+        svg {
+          margin-left: 0.6rem;
+          width: 1.6rem !important;
+          height: 1.6rem;
+        }
+      }
+    }
+  }
+  &__slider-control {
+    &-next,
+    &-previous {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background-color: rgba($cl-w, 0);
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      transition: all 0.2s ease-in-out;
+      svg {
+        width: 4.5rem !important;
+        height: 4.5rem;
+        color: $cl-primary;
+      }
+      &:hover {
+        background-color: rgba($cl-w, 0.8);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    &-next {
+      right: 3rem;
+    }
+    &-previous {
+      left: 3rem;
+    }
+    &-indicators {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      .banner__slider-control-dot {
+        cursor: pointer;
+        list-style: none;
+        &:not(:last-child) {
+          margin-right: 2rem;
+        }
+        svg {
+          color: $cl-primary;
+        }
+      }
+    }
+  }
+}

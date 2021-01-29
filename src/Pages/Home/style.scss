@@ -1,0 +1,58 @@
+@import "style/_variables.scss";
+@import "style/_base.scss";
+@import "style/_animations.scss";
+
+.bannerGroup {
+  background: url("https://res.cloudinary.com/nghiemduong2000/image/upload/v1607590178/Petshop%20Project/base/joinUs_mqztbn.png")
+    center no-repeat;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5rem;
+  &__inner {
+    width: 50%;
+    padding: 6rem;
+    color: $cl-w;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      h2 {
+        font-size: 2.8rem;
+        margin: 0;
+        font-weight: bold;
+        margin-right: 1rem;
+      }
+      img {
+        height: 2.2rem;
+      }
+    }
+    &-desc {
+      margin: 0;
+      font-size: 1.8rem;
+      margin: 2rem 0;
+    }
+    &-btn {
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      padding: 0.5rem 5rem;
+      display: flex;
+      align-items: center;
+      svg {
+        margin-left: 1rem;
+        height: 1.8rem;
+        transition: all 0.2s ease-in-out;
+      }
+      &:hover {
+        color: $cl-primary;
+        svg {
+          transform: translateX(0.5rem);
+        }
+      }
+    }
+  }
+}

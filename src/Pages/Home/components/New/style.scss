@@ -1,0 +1,52 @@
+@import "style/_variables.scss";
+
+.home__new {
+  border: 1px solid $cl-gray--l;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  &-link {
+    width: 100%;
+    display: block;
+    height: 100%;
+    color: $cl-gray;
+    text-align: center;
+    &:hover {
+      text-decoration: none;
+      color: $cl-gray;
+      .home__new-img img {
+        transform: scale(1.1);
+      }
+    }
+  }
+  &-img {
+    overflow: hidden;
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 15rem;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+  &-text {
+    padding: 1rem;
+  }
+  &-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 20rem;
+    overflow: hidden;
+    margin: 0 auto 0.5rem;
+  }
+  &-desc {
+    font-size: 1.4rem;
+    height: 4rem;
+    line-height: 2rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    margin: 0;
+  }
+}

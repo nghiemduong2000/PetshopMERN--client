@@ -1,0 +1,72 @@
+@import './_variables.scss';
+
+// Button
+.btn {
+  border: none;
+  font-weight: bold;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  &:focus {
+    box-shadow: none;
+  }
+  &--primary {
+    color: $cl-w;
+    background-color: $cl-primary !important;
+    &:hover {
+      color: $cl-w;
+      background-color: $cl-primary--b !important;
+    }
+  }
+  &--white {
+    color: $cl-primary;
+    background-color: $cl-w;
+  }
+
+  &--red {
+    color: $cl-w;
+    background-color: $cl-red;
+    &:hover {
+      color: $cl-w;
+      background-color: rgba($color: $cl-red, $alpha: 0.9);
+    }
+  }
+
+  &--secondary {
+    background-color: $cl-primary--l;
+    color: $cl-primary;
+    border: 0.1rem solid $cl-primary;
+    &:hover {
+      background-color: $cl-primary--m;
+      color: $cl-primary;
+      border: 0.1rem solid $cl-primary;
+    }
+    // &:focus {
+    //   color: $cl-primary;
+    //   background-color: $cl-primary--l;
+    //   border-color: $cl-primary;
+    // }
+    // &:active {
+    //   color: $cl-primary;
+    //   border-color: $cl-primary;
+    //   background-color: $cl-primary--l;
+    // }
+  }
+}
+
+.ratingStar {
+  display: flex;
+  &-wrapper {
+    position: relative;
+    .ratingStar--orange {
+      overflow: hidden;
+      color: $cl-orange;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .ratingStar--gray {
+      color: $cl-gray;
+    }
+  }
+}
