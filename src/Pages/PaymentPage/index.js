@@ -96,7 +96,7 @@ const PaymentPage = (props) => {
       productsList: state.data,
     };
 
-    const newOrder = await Axios.post('/api/orders', data);
+    const newOrder = await Axios.post(`/api/orders`, data);
     toggleModal();
 
     const dataUser = new FormData();
@@ -120,7 +120,7 @@ const PaymentPage = (props) => {
       paymentMethod: 'paypal',
     };
 
-    const newOrder = await Axios.post('/api/orders', data);
+    const newOrder = await Axios.post(`/api/orders`, data);
     toggleModal();
 
     const dataUser = new FormData();

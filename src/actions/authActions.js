@@ -21,7 +21,7 @@ export const loadUser = () => async (dispatch, getState) => {
       type: USER_LOADING,
     });
 
-    const user = await Axios.get('/api/auth/user', tokenConfig(getState));
+    const user = await Axios.get(`/api/auth/user`, tokenConfig(getState));
     dispatch({
       type: USER_LOADED,
       payload: user.data,
@@ -67,7 +67,7 @@ export const login = ({ userEmail, userPassword }) => async (dispatch) => {
     // Request body
     const body = JSON.stringify({ userEmail, userPassword });
 
-    const dataUser = await Axios.post('/api/auth', body, config);
+    const dataUser = await Axios.post(`/api/auth`, body, config);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: dataUser.data,
@@ -97,7 +97,7 @@ export const register = (dataRegister) => async (dispatch) => {
     // Request body
     const body = JSON.stringify(dataRegister);
 
-    const dataUser = await Axios.post('/api/users', body, config);
+    const dataUser = await Axios.post(`/api/users`, body, config);
     dispatch({
       type: REGISTER_SUCCESS,
       payload: dataUser.data,
@@ -140,7 +140,7 @@ export const addToCartUser = ({ productId, quantity }) => async (
     quantity,
   };
 
-  const update = await Axios.patch(`/api/users/cart/add/${productId}`, data);
+  const update = await Axios.patch(`}/api/users/cart/add/${productId}`, data);
 
   dispatch({
     type: UPDATE_USER,
@@ -154,7 +154,7 @@ export const buyAgain = (orderId) => async (dispatch, getState) => {
     orderId,
   };
 
-  const update = await Axios.patch('/api/users/cart/buyAgain', data);
+  const update = await Axios.patch(`/api/users/cart/buyAgain`, data);
 
   dispatch({
     type: UPDATE_USER,

@@ -8,6 +8,7 @@ export const loadSession = () => async (dispatch) => {
     });
 
     const session = await Axios.get(`/api/session`);
+    console.log(session);
     dispatch({
       type: SESSION_LOADED,
       payload: session.data,
@@ -43,7 +44,7 @@ export const resetSession = () => async (dispatch) => {
       type: SESSION_LOADING,
     });
 
-    const session = await Axios.get('/api/session/reset');
+    const session = await Axios.get(`/api/session/reset`);
     dispatch({
       type: SESSION_LOADED,
       payload: session.data,
