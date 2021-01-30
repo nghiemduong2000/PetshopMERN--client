@@ -289,9 +289,15 @@ const ProductsPage = (props) => {
 };
 
 ProductsPage.propTypes = {
-  name: PropTypes.string.isRequired,
-  filter: PropTypes.object.isRequired,
-  index: PropTypes.number.isRequired,
+  name: PropTypes.string,
+  filter: PropTypes.object,
+  index: PropTypes.number,
+};
+
+ProductsPage.defaultProps = {
+  name: '',
+  filter: {},
+  index: 0,
 };
 
 export default ProductsPage;
