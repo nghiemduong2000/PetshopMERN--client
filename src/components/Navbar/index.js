@@ -186,7 +186,10 @@ const Navbar = (props) => {
                   </li>
                   <li
                     className='navbar__user-dropdown-item'
-                    onClick={() => dispatch(logout())}
+                    onClick={() => {
+                      dispatch(logout());
+                      history.push('/');
+                    }}
                   >
                     <span className='navbar__user-dropdown-link'>
                       <FontAwesomeIcon
