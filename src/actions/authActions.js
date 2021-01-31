@@ -140,7 +140,7 @@ export const addToCartUser = ({ productId, quantity }) => async (
     quantity,
   };
 
-  const update = await Axios.patch(`}/api/users/cart/add/${productId}`, data);
+  const update = await Axios.patch(`/api/users/cart/add/${productId}`, data);
 
   dispatch({
     type: UPDATE_USER,
