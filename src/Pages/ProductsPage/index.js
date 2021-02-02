@@ -35,7 +35,6 @@ const ProductsPage = (props) => {
     { value: 'nameAZ', label: 'a-z', type: 'name' },
     { value: 'nameZA', label: 'z-a', type: 'name' },
   ];
-  const loading = useSelector((state) => state.product.loading);
   const productsBase = useSelector((state) => state.product.products);
   const [state, setState] = useState({
     products: [],
@@ -48,6 +47,7 @@ const ProductsPage = (props) => {
     productsPerPage: 8,
     sort: { value: 'default', label: 'Mặc định', type: 'default' },
     isReverse: false,
+    loaded: false,
   });
 
   useEffect(() => {
@@ -72,6 +72,7 @@ const ProductsPage = (props) => {
           props.location.pathname !== '/products'
             ? dataProducts.data
             : productsBase,
+        loaded: true,
       }));
     };
 
@@ -255,7 +256,7 @@ const ProductsPage = (props) => {
             </FormGroup>
           </Form>
         </div>
-        {loading ? (
+        {!state.loaded ? (
           <div className='spinner__wrap'>
             <Spinner className='spinner' />
           </div>

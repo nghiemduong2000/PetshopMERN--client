@@ -1,6 +1,6 @@
 import HeaderBoxProducts from 'components/HeaderBoxProducts';
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'reactstrap';
 import './style.scss';
 
@@ -8,7 +8,6 @@ const BoxProducts = (props) => {
   const Comp = props.component;
 
   // Get Node Product
-  const refProduct = useRef();
 
   // Create State
   const [state, setState] = useState({
@@ -21,7 +20,8 @@ const BoxProducts = (props) => {
   useEffect(() => {
     setState((newState) => ({
       ...newState,
-      widthProduct: refProduct.current.getBoundingClientRect().width,
+      widthProduct: document.querySelector('.product').getBoundingClientRect()
+        .width,
       dataBoxProducts: props.dataBoxProducts[0].data,
     }));
     //eslint-disable-next-line
@@ -75,7 +75,7 @@ const BoxProducts = (props) => {
           {state.dataBoxProducts.map((product, index) => {
             return (
               <Col key={index} md='3' className='boxProducts__slide-wrap'>
-                <Comp product={product} refProduct={refProduct} />
+                <Comp product={product} />
               </Col>
             );
           })}

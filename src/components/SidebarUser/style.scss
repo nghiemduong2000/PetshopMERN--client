@@ -36,6 +36,9 @@
     font-weight: 700;
     cursor: pointer;
     transition: 0.2s linear;
+    .active {
+      color: $cl-primary !important;
+    }
     & .collapse {
       a {
         padding-left: 2.8rem;
@@ -58,8 +61,4 @@
       }
     }
   }
-}
-
-.active {
-  color: $cl-primary !important;
 }

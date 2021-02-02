@@ -5,13 +5,12 @@ import { updateProduct } from 'actions/productActions';
 import { addToCartSession } from 'actions/sessionActions';
 import RatingStar from 'components/RatingStar';
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './style.scss';
 
 const Product = (props) => {
-  const refAlter = useRef();
   const dispatch = useDispatch();
   const userBase = useSelector((state) => state.auth.user);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -57,10 +56,7 @@ const Product = (props) => {
   };
 
   return (
-    <div
-      className='product'
-      ref={props.refProduct ? props.refProduct : refAlter}
-    >
+    <div className='product'>
       <div
         className={`product-like ${
           state.likesUser.indexOf(productId) !== -1 ? 'active' : ''
