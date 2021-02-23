@@ -49,6 +49,11 @@
         display: flex;
         align-items: center;
       }
+      .productDetail__main-freeShip {
+        a {
+          color: $cl-primary;
+        }
+      }
       .productDetail__main-input {
         display: inline-block;
         width: 3.2rem;
@@ -116,6 +121,9 @@
         color: $cl-gray;
         font-weight: 500;
         margin-bottom: 1.5rem;
+        a {
+          color: $cl-primary;
+        }
       }
       ul {
         padding-left: 3rem;

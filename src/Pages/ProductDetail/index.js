@@ -214,7 +214,7 @@ const ProductDetail = (props) => {
                     +
                   </button>
                 </FormGroup>
-                <p>
+                <p className='productDetail__main-freeShip'>
                   Freeship nội thành với đơn hàng trên 200.000đ{' '}
                   <Link to=''>(Chính sách vận chuyển)</Link>
                 </p>
@@ -314,10 +314,12 @@ const ProductDetail = (props) => {
                     ? 0
                     : currentProduct.reviews.length === 0
                     ? 0
-                    : currentProduct.reviews.reduce(
-                        (average, review) => average + review.rating,
-                        0
-                      ) / currentProduct.reviews.length}
+                    : (
+                        currentProduct.reviews.reduce(
+                          (average, review) => average + review.rating,
+                          0
+                        ) / currentProduct.reviews.length
+                      ).toFixed(1)}
                 </span>
                 <div className='productDetail__review-ratingWrap'>
                   <RatingStar

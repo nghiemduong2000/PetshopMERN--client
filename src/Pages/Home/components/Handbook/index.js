@@ -23,7 +23,7 @@ const HandBook = (props) => {
                 <FontAwesomeIcon icon={data.icon} />
                 <h3>{data.title}</h3>
                 <p>{data.desc}</p>
-                <Link to='' className='btn btn-primary'>
+                <Link to='' className='btn btn--primary'>
                   Khám phá
                 </Link>
               </div>
