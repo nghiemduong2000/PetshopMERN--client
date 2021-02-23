@@ -1,5 +1,6 @@
 @import 'style/_variables.scss';
 @import 'style/_animations.scss';
+@import 'style/_mixin.scss';
 
 .product {
   display: flex;
@@ -9,6 +10,9 @@
   border: 1px solid $cl-gray--l;
   border-radius: 0.8rem;
   position: relative;
+  @include respond(phone) {
+    padding: 1rem;
+  }
   &-like {
     background-color: $cl-gray;
     opacity: 0;
@@ -39,6 +43,12 @@
   &-img {
     img {
       height: 18rem;
+      @include respond(tablet) {
+        height: 14rem;
+      }
+      @include respond(phone) {
+        height: 10rem;
+      }
     }
   }
   &-rating {
@@ -75,5 +85,11 @@
   &-btn {
     width: 100%;
     padding: 0.5rem 4rem;
+    @include respond(tablet) {
+      padding: 0.5rem 2rem;
+    }
+    @include respond(phone) {
+      padding: 0.4rem 1rem;
+    }
   }
 }

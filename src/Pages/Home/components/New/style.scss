@@ -1,4 +1,5 @@
-@import "style/_variables.scss";
+@import 'style/_variables.scss';
+@import 'style/_mixin.scss';
 
 .home__new {
   border: 1px solid $cl-gray--l;
@@ -38,6 +39,10 @@
     width: 20rem;
     overflow: hidden;
     margin: 0 auto 0.5rem;
+    @include respond(phone) {
+      width: 13rem;
+      font-size: 1.6rem;
+    }
   }
   &-desc {
     font-size: 1.4rem;

@@ -270,7 +270,13 @@ const ProductsPage = (props) => {
                 .slice(indexOfFirstProduct, indexOfLastProduct)
                 .map((product, index) => {
                   return (
-                    <Col key={index} md='3' className='productsPage__item'>
+                    <Col
+                      key={index}
+                      xs='6'
+                      md='4'
+                      lg='3'
+                      className='productsPage__item'
+                    >
                       <Product product={product} />
                     </Col>
                   );

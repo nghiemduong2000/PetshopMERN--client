@@ -1,4 +1,5 @@
 @import 'style/_variables.scss';
+@import 'style/_mixin.scss';
 
 .login {
   &__header {
@@ -9,7 +10,6 @@
       align-items: center;
       justify-content: center;
       .login__header-link {
-        margin-right: 2rem;
         img {
           height: 3.6rem;
         }
@@ -27,6 +27,9 @@
       padding: 3rem 5rem;
       width: 50rem;
       border-right: 2px solid $cl-gray--l;
+      @include respond(phone) {
+        display: none;
+      }
       &-title {
         font-size: 2.6rem;
         font-weight: bold;
@@ -65,6 +68,9 @@
     .login__form {
       flex: 1;
       padding: 0 5rem;
+      @include respond(phone) {
+        padding: 0 3rem;
+      }
       &-title {
         font-size: 2.8rem;
         font-weight: bold;
@@ -73,6 +79,9 @@
         border-bottom: 4px solid $cl-primary;
         color: $cl-primary;
         margin-bottom: 2rem;
+        @include respond(phone) {
+          font-size: 2.4rem;
+        }
       }
       &-main {
         font-size: 1.8rem;
@@ -92,6 +101,13 @@
           width: 100%;
           font-size: 2rem;
           padding: 0.6rem;
+        }
+      }
+      &-register {
+        font-size: 1.6rem;
+        margin-top: 2rem;
+        a {
+          color: $cl-primary;
         }
       }
     }

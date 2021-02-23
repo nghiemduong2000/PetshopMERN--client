@@ -1,15 +1,19 @@
-@import "style/_variables.scss";
-@import "style/_base.scss";
-@import "style/_animations.scss";
+@import 'style/_variables.scss';
+@import 'style/_base.scss';
+@import 'style/_animations.scss';
+@import 'style/_mixin.scss';
 
 .bannerGroup {
-  background: url("https://res.cloudinary.com/nghiemduong2000/image/upload/v1607590178/Petshop%20Project/base/joinUs_mqztbn.png")
+  background: url('https://res.cloudinary.com/nghiemduong2000/image/upload/v1607590178/Petshop%20Project/base/joinUs_mqztbn.png')
     center no-repeat;
+  background-size: contain;
   width: 100%;
-  background-size: cover;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 5rem;
+  @include respond(phone) {
+    display: none;
+  }
   &__inner {
     width: 50%;
     padding: 6rem;
@@ -17,6 +21,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include respond(tablet) {
+      padding: 2rem;
+    }
     &-title {
       display: flex;
       align-items: center;
@@ -26,15 +33,29 @@
         margin: 0;
         font-weight: bold;
         margin-right: 1rem;
+        @include respond(tablet) {
+          font-size: 2.4rem;
+        }
       }
       img {
         height: 2.2rem;
+        @include respond(tablet) {
+          height: 1.8rem;
+        }
       }
     }
     &-desc {
       margin: 0;
       font-size: 1.8rem;
       margin: 2rem 0;
+      @include respond(tablet) {
+        font-size: 1.4rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
     }
     &-btn {
       font-size: 2.2rem;
@@ -42,10 +63,17 @@
       padding: 0.5rem 5rem;
       display: flex;
       align-items: center;
+      @include respond(tablet) {
+        font-size: 1.8rem;
+        padding: 0.2rem 3rem;
+      }
       svg {
         margin-left: 1rem;
         height: 1.8rem;
         transition: all 0.2s ease-in-out;
+        @include respond(tablet) {
+          height: 1.6rem;
+        }
       }
       &:hover {
         color: $cl-primary;

@@ -16,6 +16,7 @@ import React, { createRef, Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { Container } from 'reactstrap';
+import NavbarMenuTabletChild from './components/NavbarMenuTabletChild';
 import { dataNavbar } from './data';
 import './stye.scss';
 
@@ -30,6 +31,7 @@ const Navbar = (props) => {
     user: {},
     cart: [],
     inputSearch: '',
+    collapsed: false,
   });
 
   useEffect(() => {
@@ -94,10 +96,86 @@ const Navbar = (props) => {
     }));
   };
 
+  const toggleNavbar = () => {
+    setState((newState) => ({
+      ...newState,
+      collapsed: !newState.collapsed,
+    }));
+  };
+
   return (
     <div className='navbar'>
+      <div
+        className={`navbar__menu--tablet-wrap ${state.collapsed ? 'show' : ''}`}
+      >
+        {isAuthenticated ? (
+          <Link to='/user/purchase' className='navbar__menu--tablet-user'>
+            <img src={user.imageUser} alt='avatar' />
+            <h4>{user.userName}</h4>
+          </Link>
+        ) : (
+          <Link to='/login' className='navbar__menu--tablet-login'>
+            <div className='navbar__menu--tablet-login-icon'>
+              <FontAwesomeIcon icon={faUser} />
+            </div>
+            <div className='navbar__menu--tablet-login-title'>Đăng nhập</div>
+          </Link>
+        )}
+
+        <div className='navbar__menu--tablet-searchbar'>
+          <form
+            className='navbar__menu--tablet-searchbar-form'
+            onSubmit={handleSubmitSearch}
+          >
+            <input
+              name='s'
+              type='text'
+              className='navbar__menu--tablet-searchbar-input'
+              placeholder='Tìm kiếm: Thức ăn,...'
+              maxLength='128'
+              value={state.inputSearch}
+              onChange={(e) =>
+                setState((newState) => ({
+                  ...newState,
+                  inputSearch: e.target.value,
+                }))
+              }
+            />
+            <button
+              className='btn navbar__menu--tablet-searchbar-btn'
+              type='submit'
+            >
+              <FontAwesomeIcon icon={faSearch} />
+            </button>
+          </form>
+        </div>
+        <hr />
+        <ul className='navbar__menu--tablet-list'>
+          {dataNavbar.map((main, index) => {
+            return <NavbarMenuTabletChild key={index} main={main} />;
+          })}
+          {isAuthenticated ? (
+            <li className='navbar__menu--tablet-item'>
+              <span
+                className='navbar__menu--tablet-logout'
+                onClick={() => dispatch(logout())}
+              >
+                Đăng xuất
+              </span>
+            </li>
+          ) : null}
+        </ul>
+      </div>
       <div className='navbar__top'>
         <Container>
+          <div
+            className={`navbar__menu--tablet ${
+              state.collapsed ? 'checked' : ''
+            }`}
+            onClick={toggleNavbar}
+          >
+            <span className='navbar__menu--tablet-icon'>&nbsp;</span>
+          </div>
           <div className='navbar__top-left'>
             <div className='navbar__logo'>
               <Link to='/' className='navbar__logo-link'>

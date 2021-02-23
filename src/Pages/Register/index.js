@@ -118,7 +118,7 @@ const Register = (props) => {
                   />
                   <button
                     type='submit'
-                    className='btn btn-primary register__form-btn'
+                    className='btn btn--primary register__form-btn'
                   >
                     Đăng ký
                   </button>

@@ -66,7 +66,7 @@ const ListProducts = (props) => {
           slider={false}
         />
         <Row className='spttc__items'>
-          <Col md='5' className='spttc__items-item'>
+          <Col md='5' xs='6' className='spttc__items-item'>
             <Link to='/products/cun' className='spttc__items-item-link'>
               <img
                 src='https://res.cloudinary.com/nghiemduong2000/image/upload/v1607360757/Petshop%20Project/base/bannerForPet_htlqot.png'
@@ -74,7 +74,7 @@ const ListProducts = (props) => {
               />
             </Link>
           </Col>
-          <Col md='5' className='spttc__items-item'>
+          <Col md='5' xs='6' className='spttc__items-item'>
             <Link to='/products/meo' className='spttc__items-item-link'>
               <img
                 src='https://res.cloudinary.com/nghiemduong2000/image/upload/v1607360757/Petshop%20Project/base/bannerForPet2_xsjp6p.png'

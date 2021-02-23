@@ -74,7 +74,13 @@ const BoxProducts = (props) => {
         >
           {state.dataBoxProducts.map((product, index) => {
             return (
-              <Col key={index} md='3' className='boxProducts__slide-wrap'>
+              <Col
+                key={index}
+                xs='6'
+                sm='4'
+                lg='3'
+                className='boxProducts__slide-wrap'
+              >
                 <Comp product={product} />
               </Col>
             );

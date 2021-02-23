@@ -1,11 +1,18 @@
-@import "style/_variables.scss";
-@import "style/_base.scss";
-@import "style/_animations.scss";
+@import 'style/_variables.scss';
+@import 'style/_base.scss';
+@import 'style/_animations.scss';
+@import 'style/_mixin.scss';
 
 .listProducts {
   margin-top: 5rem;
+  @include respond(phone) {
+    margin-top: 2rem;
+  }
   &-item {
     margin-bottom: 5rem;
+    @include respond(phone) {
+      margin-bottom: 2rem;
+    }
   }
   .spttc {
     &__items {
@@ -24,7 +31,7 @@
             object-fit: cover;
           }
           &::after {
-            content: "";
+            content: '';
             display: block;
             position: absolute;
             height: 1rem;

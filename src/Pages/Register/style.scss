@@ -1,4 +1,5 @@
 @import 'style/_variables.scss';
+@import 'style/_mixin.scss';
 
 .register {
   &__header {
@@ -9,7 +10,6 @@
       align-items: center;
       justify-content: center;
       .register__header-link {
-        margin-right: 2rem;
         img {
           height: 3.6rem;
         }
@@ -23,7 +23,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10rem 0;
+    padding: 10rem 4.5rem;
     .register__form {
       width: 60rem;
       &-title {
@@ -34,6 +34,9 @@
         border-bottom: 4px solid $cl-primary;
         color: $cl-primary;
         margin-bottom: 2rem;
+        @include respond(phone) {
+          font-size: 2.4rem;
+        }
       }
       &-main {
         font-size: 1.8rem;

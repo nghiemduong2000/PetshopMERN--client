@@ -1,16 +1,23 @@
 @import 'style/_variables.scss';
+@import 'style/_mixin.scss';
 
 .paginationBar {
   width: 100%;
   display: flex;
   justify-content: center;
   margin: 8rem 0 3rem;
+  @include respond(phone) {
+    margin: 4rem 0 3rem;
+  }
   &__item {
     display: flex;
     align-items: center;
     justify-content: center;
     &:not(:last-child) {
       margin-right: 2rem;
+      @include respond(phone) {
+        margin-right: 1.6rem;
+      }
     }
     &.active {
       .paginationBar__link {
@@ -41,6 +48,11 @@
       font-weight: bold;
       color: $cl-primary;
       cursor: pointer;
+      @include respond(phone) {
+        width: 3.4rem;
+        height: 3.4rem;
+        font-size: 1.6rem;
+      }
       &:hover {
         background-color: $cl-primary--l;
       }

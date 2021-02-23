@@ -1,4 +1,5 @@
 @import 'style/_variables.scss';
+@import 'style/_mixin.scss';
 
 .productsPage {
   &__empty {
@@ -12,6 +13,9 @@
   }
   &__item {
     margin-bottom: 3rem;
+    @include respond(phone) {
+      margin-bottom: 1.5rem;
+    }
   }
   &__titleResult {
     color: $cl-gray;

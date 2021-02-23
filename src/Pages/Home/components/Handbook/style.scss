@@ -1,10 +1,20 @@
-@import "style/_variables.scss";
+@import 'style/_variables.scss';
+@import 'style/_mixin.scss';
 
 .home__handbook {
   margin-bottom: 5rem;
+  @include respond(phone) {
+    margin-bottom: 2rem;
+  }
   &-content {
     padding: 0 1.5rem;
     &-item {
+      @include respond(phone) {
+        &:nth-child(1),
+        &:nth-child(2) {
+          margin-bottom: 1.5rem;
+        }
+      }
       &-inner {
         border: 1px solid $cl-gray--l;
         border-radius: 0.8rem;
@@ -12,27 +22,46 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        @include respond(tablet) {
+          padding: 1.5rem;
+        }
         svg {
           width: 12.5rem !important;
           height: 12.5rem;
           color: $cl-primary;
+          @include respond(tablet) {
+            width: 8rem !important;
+            height: 8rem;
+          }
         }
         h3 {
           font-size: 2.2rem;
           font-weight: bold;
           color: $cl-gray;
           margin: 1.8rem 0;
+          @include respond(tablet) {
+            font-size: 1.6rem;
+            margin: 1.2rem 0;
+          }
         }
         p {
           text-align: center;
           font-size: 1.4rem;
           margin-bottom: 1.2rem;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
         a {
           width: 100%;
           display: inline-block;
           font-weight: bold;
           font-size: 1.8rem;
+          @include respond(tablet) {
+            font-size: 1.5rem;
+          }
         }
       }
     }

@@ -137,7 +137,7 @@ const Login = (props) => {
                       />
                       <button
                         type='submit'
-                        className='btn btn-primary login__form-btn'
+                        className='btn btn--primary login__form-btn'
                       >
                         Đăng nhập
                       </button>
@@ -145,6 +145,9 @@ const Login = (props) => {
                   );
                 }}
               </Formik>
+              <p className='login__form-register'>
+                Bạn chưa có tài khoản? <Link to='/register'>Đăng ký ngay</Link>
+              </p>
             </div>
           </div>
         </Container>

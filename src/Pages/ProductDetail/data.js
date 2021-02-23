@@ -3,14 +3,6 @@ export const dataProductDetail = [
     title: 'Thông tin',
     data: 1,
   },
-  {
-    title: 'Thương hiệu',
-    data: 2,
-  },
-  {
-    title: 'Đặt hàng & Giao Hàng',
-    data: 3,
-  },
 ];
 
 export const dataReviews = {

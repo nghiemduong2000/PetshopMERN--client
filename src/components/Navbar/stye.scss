@@ -1,4 +1,5 @@
 @import 'style/_variables';
+@import 'style/_mixin';
 
 .navbar {
   padding: 0px;
@@ -8,9 +9,121 @@
   &__top {
     display: flex;
     width: 100%;
-    border-bottom: 1px solid #bbb;
     padding: 25px 30px;
     align-items: center;
+    @include respond(tablet) {
+      margin: auto;
+      padding: 2rem 0;
+    }
+    & .container {
+      position: relative;
+    }
+    .navbar__menu--tablet {
+      height: 3rem;
+      width: 3rem;
+      position: absolute;
+      left: 1.5rem;
+      border-radius: 5rem;
+      z-index: 4;
+      cursor: pointer;
+      text-align: center;
+      display: none;
+      @include respond(tablet) {
+        display: block;
+      }
+      @include respond(phone) {
+        top: 0rem;
+        left: 1.5rem;
+      }
+      &-icon {
+        position: relative;
+        margin-top: 1.4rem;
+        &,
+        &::before,
+        &::after {
+          width: 2.8rem;
+          height: 0.3rem;
+          background-color: $cl-primary;
+          display: inline-block;
+          @include respond(phone) {
+            width: 2.2rem;
+            height: 0.2rem;
+          }
+        }
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          transition: all 0.2s;
+        }
+
+        &::before {
+          top: -0.8rem;
+          @include respond(phone) {
+            top: -0.6;
+          }
+        }
+
+        &::after {
+          top: 0.8rem;
+          @include respond(phone) {
+            top: 0.6;
+          }
+        }
+      }
+      &.checked .navbar__menu--tablet-icon {
+        background-color: transparent;
+      }
+
+      &.checked .navbar__menu--tablet-icon::before {
+        top: 0;
+        transform: rotate(135deg);
+      }
+
+      &.checked .navbar__menu--tablet-icon::after {
+        top: 0;
+        transform: rotate(-135deg);
+      }
+
+      &-list {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 10rem;
+        padding-left: 0;
+        text-align: center;
+        background-color: $cl-primary--l;
+        z-index: 3;
+        padding: 1.5rem 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s;
+      }
+      &-item {
+        list-style: none;
+      }
+      &-link {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 1.5rem 0;
+        display: block;
+        color: $cl-gray;
+        cursor: pointer;
+        transition: all 0.2s;
+        &:hover {
+          color: $cl-primary;
+        }
+      }
+      &:checked ~ &-list {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
     &-left {
       display: flex;
       flex: 1;
@@ -21,6 +134,9 @@
       .navbar__user-wrap {
         position: relative;
         margin: 0 2rem;
+        @include respond(phone) {
+          display: none;
+        }
         &:hover {
           .navbar__user {
             color: $cl-primary;
@@ -180,11 +296,20 @@
         color: $cl-primary;
       }
     }
+    @include respond(tablet) {
+      display: none;
+    }
   }
   &__logo {
+    @include respond(tablet) {
+      margin: auto;
+    }
     &-link {
       img {
         height: 36px;
+        @include respond(tablet) {
+          height: 3rem;
+        }
       }
     }
   }
@@ -199,6 +324,9 @@
     margin: 0 3rem 0 3.5rem;
     transition: all 0.2s linear;
     color: $cl-primary;
+    @include respond(tablet) {
+      display: none;
+    }
     &:focus {
       outline: none;
     }
@@ -227,6 +355,10 @@
   &__cart {
     height: 3.6rem;
     position: relative;
+    @include respond(tablet) {
+      position: absolute;
+      right: 1.5rem;
+    }
     &:hover {
       .navbar__cart-list-wrapper {
         opacity: 1;
@@ -295,6 +427,9 @@
       width: 40rem;
       transition: 0.2s all ease-in-out;
       z-index: 1;
+      @include respond(tablet) {
+        display: none;
+      }
       &-title {
         font-size: 1.6rem;
         font-weight: 700;
@@ -376,7 +511,11 @@
   // Navbar Menu
   &__menu {
     width: 100%;
+    border-top: 1px solid #bbb;
     border-bottom: 1px solid #bbb;
+    @include respond(tablet) {
+      display: none;
+    }
     &-list {
       width: inherit;
       margin: 0;
@@ -490,6 +629,9 @@
   &__benefits-wrap {
     width: 100%;
     padding: 1.5rem 0;
+    @include respond(tablet) {
+      display: none;
+    }
     .navbar__benefits {
       width: 100%;
       display: flex;
@@ -509,6 +651,157 @@
           line-height: 1.8rem;
         }
       }
+    }
+  }
+
+  // Navbar Menu Tablet
+  .navbar__menu--tablet {
+    &-wrap {
+      position: absolute;
+      padding: 2.2rem 1.5rem 0;
+      width: 100%;
+      top: 0;
+      right: 0;
+      left: 0;
+      background-color: $cl-w;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0.5rem 1.5rem 0.5rem rgba($cl-gray--l, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s linear;
+      &.show {
+        opacity: 1;
+        visibility: visible;
+      }
+      & > hr {
+        width: 80%;
+        border-top: 1px solid rgba($cl-gray--l, 0.5);
+        margin: 0 auto;
+      }
+    }
+    &-login {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 12.5rem;
+      align-self: flex-end;
+      &-icon {
+        svg {
+          width: 2.4rem !important;
+          height: 2.4rem;
+          color: $cl-primary;
+        }
+      }
+      &-title {
+        margin-left: 1rem;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: $cl-primary;
+      }
+    }
+    &-user {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 0 1rem;
+      height: 3.8rem;
+      color: $cl-primary;
+      transition: all 0.2s ease-in-out;
+      min-width: 17rem;
+      justify-content: flex-end;
+      img {
+        width: 3rem;
+        object-fit: cover;
+        height: 3rem;
+        margin-right: 1rem;
+        border-radius: 50%;
+      }
+      h4 {
+        font-weight: bold;
+        margin: 0;
+      }
+    }
+    &-searchbar {
+      margin-top: 2rem;
+      border: 0.1rem solid $cl-primary;
+      border-radius: 0.8rem;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      &-form {
+        display: flex;
+        align-items: center;
+        .navbar__menu--tablet-searchbar-input {
+          flex: 1;
+          border: none;
+          padding: 0.5rem 1rem;
+        }
+        .navbar__menu--tablet-searchbar-btn {
+          padding: 0.5rem 1rem;
+          svg {
+            color: $cl-primary;
+          }
+        }
+      }
+    }
+    &-list {
+      margin: 0;
+      padding: 0;
+      .navbar__menu--tablet-item {
+        list-style: none;
+        .navbar__menu--tablet-item-wrap {
+          display: flex;
+          align-items: center;
+          .navbar__menu--tablet-link {
+            display: flex;
+            flex: 5;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            font-size: 1.6rem;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            color: $cl-primary;
+          }
+          .navbar__menu--tablet-collapse {
+            flex: 1;
+            margin-left: 0.5rem;
+            transition: all 0.2s linear;
+            color: $cl-primary;
+            &.show {
+              transform: rotate(90deg);
+            }
+          }
+        }
+        .navbar__menu--tablet-child {
+          margin: 0;
+          padding: 0;
+          background-color: $cl-primary--l;
+          &-item {
+            list-style: none;
+            &__link {
+              display: flex;
+              justify-content: flex-start;
+              width: 100%;
+              padding: 0.8rem 2rem;
+              font-weight: 500;
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+    }
+    &-logout {
+      color: $cl-red;
+      display: flex;
+      flex: 5 1;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      font-size: 1.6rem;
+      font-weight: 700;
+      padding: 1rem 2rem;
     }
   }
 }

@@ -1,11 +1,15 @@
-@import "style/_variables.scss";
-@import "style/_animations.scss";
+@import 'style/_variables.scss';
+@import 'style/_animations.scss';
+@import 'style/_mixin.scss';
 
 .boxProducts__slider {
   padding: 0 1.5rem;
   overflow-x: scroll;
   overflow-y: hidden;
   position: relative;
+  @include respond(phone) {
+    padding: 0;
+  }
   &::-webkit-scrollbar {
     display: none;
   }
@@ -15,7 +19,7 @@
     align-items: center;
   }
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     height: 105%;
@@ -27,9 +31,12 @@
       rgba(102, 40, 40, 0),
       rgb(255, 255, 255)
     );
+    @include respond(phone) {
+      display: none;
+    }
   }
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     height: 105%;
@@ -42,6 +49,9 @@
       rgba(102, 40, 40, 0),
       rgb(255, 255, 255)
     );
+    @include respond(phone) {
+      display: none;
+    }
   }
 }
 
