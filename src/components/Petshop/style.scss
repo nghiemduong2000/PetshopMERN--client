@@ -42,6 +42,9 @@
   img {
     height: 5rem;
     animation: scaleLogo 0.8s ease-in-out infinite;
+    @include respond(phone) {
+      height: 3rem;
+    }
   }
 }
 
