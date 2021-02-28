@@ -134,7 +134,7 @@
       .navbar__user-wrap {
         position: relative;
         margin: 0 2rem;
-        @include respond(phone) {
+        @include respond(tablet) {
           display: none;
         }
         &:hover {
