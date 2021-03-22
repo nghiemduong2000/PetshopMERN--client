@@ -25,9 +25,15 @@ export const addToCartSession = ({ productId, quantity }) => async (
       type: SESSION_LOADING,
     });
 
-    const session = await Axios.patch(`/api/session/add/${productId}`, {
-      quantity,
-    });
+    const session = await Axios.patch(
+      `/api/session/add/${productId}`,
+      {
+        quantity,
+      },
+      {
+        withCredentials: true,
+      }
+    );
     dispatch({
       type: SESSION_LOADED,
       payload: session.data,

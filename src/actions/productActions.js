@@ -3,7 +3,7 @@ import { GET_PRODUCTS, PRODUCTS_LOADING, UPDATE_PRODUCT } from './types';
 
 export const getProducts = () => async (dispatch) => {
   dispatch(setProductsLoading());
-  const products = await Axios.get(`/api/products`, { withCredentials: true });
+  const products = await Axios.get(`/api/products`);
   dispatch({
     type: GET_PRODUCTS,
     payload: products.data,
